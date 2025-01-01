@@ -8,6 +8,7 @@ const rename = require('gulp-rename');
 const {series} = require("gulp");
 const uglify = require('gulp-uglify');
 const refresh = require('gulp-refresh');
+
 function buildFiles(done) {
     gulp.src('./node_modules/animate.css/animate.min.css')
         .pipe(gulp.dest('./docs/styles'));
@@ -66,6 +67,12 @@ function buildDefaultTemplate(done) {
     gulp.src('index.html')
         .pipe(gulp.dest('./docs'));
     done();
+}
+
+function copyImages(done) {
+     gulp.src('/static*/images/**.*', { base : "." })
+        .pipe(gulp.dest('docs/images'));
+     done();
 }
 
 function watches() {
