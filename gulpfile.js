@@ -10,37 +10,37 @@ const uglify = require('gulp-uglify');
 const refresh = require('gulp-refresh');
 function buildFiles(done) {
     gulp.src('./node_modules/animate.css/animate.min.css')
-        .pipe(gulp.dest('./dist/styles'));
+        .pipe(gulp.dest('./docs/styles'));
     gulp.src('./node_modules/bootstrap/dist/css/bootstrap.min.css')
-        .pipe(gulp.dest('./dist/styles'));
+        .pipe(gulp.dest('./docs/styles'));
     gulp.src('./node_modules/bootstrap/dist/js/bootstrap.min.js')
-        .pipe(gulp.dest('./dist/scripts'));
+        .pipe(gulp.dest('./docs/scripts'));
     gulp.src('./node_modules/jquery/dist/jquery.min.js')
-        .pipe(gulp.dest('./dist/scripts'));
+        .pipe(gulp.dest('./docs/scripts'));
     gulp.src('./node_modules/jquery-ui/dist/themes/base/jquery-ui.min.css')
-        .pipe(gulp.dest('./dist/styles'));
+        .pipe(gulp.dest('./docs/styles'));
     gulp.src('./node_modules/jquery-ui/dist/jquery-ui.min.js')
-        .pipe(gulp.dest('./dist/scripts'));
+        .pipe(gulp.dest('./docs/scripts'));
     gulp.src('./node_modules/jquery.maskedinput/src/jquery.maskedinput.js')
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./dist/scripts'));
+        .pipe(gulp.dest('./docs/scripts'));
     gulp.src('./node_modules/jquery-ui/dist/themes/base/theme.css')
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./dist/styles'));
+        .pipe(gulp.dest('./docs/styles'));
     gulp.src('./node_modules/slick-carousel/slick/slick.css')
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./dist/styles'));
+        .pipe(gulp.dest('./docs/styles'));
     gulp.src('./node_modules/slick-carousel/slick/slick-theme.css')
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./dist/styles'));
+        .pipe(gulp.dest('./docs/styles'));
     gulp.src('./node_modules/slick-carousel/slick/slick.min.js')
-        .pipe(gulp.dest('./dist/scripts'));
+        .pipe(gulp.dest('./docs/scripts'));
     gulp.src('./node_modules/wowjs/dist/wow.min.js')
-        .pipe(gulp.dest('./dist/scripts'));
+        .pipe(gulp.dest('./docs/scripts'));
     done();
 }
 
@@ -50,7 +50,7 @@ function buildDefaultStyles(done) {
         .pipe(less())
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./dist/styles'));
+        .pipe(gulp.dest('./docs/styles'));
     done();
 }
 
@@ -58,13 +58,13 @@ function buildDefaultScripts(done) {
     gulp.src('./scripts/script.js')
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./dist/scripts'));
+        .pipe(gulp.dest('./docs/scripts'));
     done();
 }
 
 function buildDefaultTemplate(done) {
     gulp.src('index.html')
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./docs'));
     done();
 }
 
